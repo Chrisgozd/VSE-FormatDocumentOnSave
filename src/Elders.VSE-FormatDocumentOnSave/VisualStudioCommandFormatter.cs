@@ -29,7 +29,10 @@ namespace Elders.VSE_FormatDocumentOnSave
                     command = defaultCommand;
                 }
                 if (filter.IsAllowed(document))
+                {
                     dte.ExecuteCommand(command, string.Empty);
+                    dte.ExecuteCommand("Edit.RemoveAndSort", string.Empty);
+                }
             }
 
             currentDoc.Activate();
